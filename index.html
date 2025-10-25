@@ -334,25 +334,20 @@
 
 .our-services {
   font-weight: 900;
-background: #333;
-color:#ccc;
-border-radius: 30px 80px;
-text-align: center;
-}
-@keyframes slideIn {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  background: linear-gradient(270deg, #333, #555, #999, #ccc);
+  background-size: 800% 800%;
+  color: #fff;
+  border-radius: 30px 80px;
+  text-align: center;
+  animation: gradientShift 6s ease infinite;
 }
 
-.our-services {
-  animation: slideIn 1s ease-out forwards;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
 
   </style>
 </head>
