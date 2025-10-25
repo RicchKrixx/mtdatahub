@@ -247,7 +247,7 @@ text-align: center;
 .bundle-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 4px;
   margin: 15px 0;
   justify-content: center;
 }
@@ -398,12 +398,8 @@ small {
     </div>
 
     <div class="info">
-<p id="selectedData">Selected Bundle: None</p>
-    <p id="selectedPrice">Price: ...</p>
-
-
-
-   
+<p id="selectedData">Selected Bundle: </p>
+    <p id="selectedPrice">Price: </p>
 
 
 
@@ -412,9 +408,11 @@ small {
   <h3>Enter Recipient Contact</h3>
 
     <input type="tel" id="recipient" name="recipient" placeholder="e.g. 0241234567" required />
+      <br>
+      <small>please provide 10 digits only!!!</small>
 <button class="bb" type="submit">Purchase</button>
-<br>
-<small>please provide 10 digits only!!!</small>
+
+
   </form>
   </div>
 </section>
