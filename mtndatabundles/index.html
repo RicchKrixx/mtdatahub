@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MTN DATA BUNDLES</title>
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .telco-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+    .telco-card img {
+      width: 100%;
+      max-width: 300%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .telco-card {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: url(https://i.postimg.cc/tgnrwWwy/74651E6D-1C42-46AB-A5AE-24B6CDA1DC48.jpg);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+.logo img {
+  height: auto;
+  width: 200px;
+}
+
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 25px;
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2001;
+    color: white;
+  }
+
+  .hamburger span {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 10px; }
+  .hamburger span:nth-child(3) { top: 20px; }
+  .user-menu { position: relative; display: inline-block; }
+    .user-icon { 
+      font-size: 30px; cursor: pointer; 
+    }
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      min-width: 160px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      z-index: 2002;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+    .dropdown a:hover {
+      background: #f1f1f1;
+    }
+    .hidden {
+ display: none; 
+}
+/* Popup menu */
+  .menu {
+    position: fixed;
+    top: 40px;
+    right: -250px; /* hidden by default */
+    width: 250px;
+    height: auto;
+    background: #f1f1f1;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    transition: right 0.3s ease;
+    padding-top: 60px;
+    border-radius: 8px;
+    z-index: 2000;
+  }
+
+  .menu a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
+
+  .menu a:hover {
+    background: #ddd;
+  }
+
+  /* Active menu */
+  .menu.active {
+    right: 0;
+  }
+
+  /* Optional: animate hamburger to X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+    background: #333;
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+    background: #333;
+  }
+  footer {
+  background:url(https://i.postimg.cc/Dypvv3jR/652830CC-477E-4D95-B860-DB69D6F16940.jpg);
+  color: white;
+  padding: 30px 20px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #00695c;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.our-services {
+  font-weight: 900;
+background: #333;
+color:#ccc;
+border-radius: 30px 80px;
+text-align: center;
+}
+.recipient-form {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.recipient-form h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#contactForm {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#contactForm input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contactForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #abaaa1;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+#contactForm button:hover {
+  background-color: #e6c800;
+}
+
+.bundle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+.bundle-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.bundle-buttons button:hover::after {
+  content: attr(data-price) " GHS";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #05280b;
+  color: #fff;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+.bundle-buttons button.active {
+  background: #067928 !important;
+  font-weight: bold;
+}
+.bb {
+    background: #067928 !important;
+}
+#selectedPrice {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+#selectedData {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.info {
+    padding: 23px;
+    border-radius: 5px;
+}
+.bundle-form h2, h3 {
+    text-align: center;
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 6px solid #004d40;
+  border-top: 6px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+small {
+    text-align: left !important;
+}
+  </style>
+</head>
+
+
+<header>
+
+    <div class="logo">
+<img src="https://i.postimg.cc/4d5v2RpZ/IMG-20251024-211857.png">
+    </div>
+
+<nav class="nav">
+<div class="hamburger" id="hamburger" style="color: white;">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+<div class="menu" id="menu">
+  <a href="/auth/">Login/Register</a>
+  <a href="/about/">About</a>
+
+</div>
+
+  </nav>
+ </header>
+
+<body>
+<div class="our-services">MTN DATA BUNDLES&#x1F381;</div>
+  <div id="loader" class="loader hidden"></div>
+  <div class="telco-container">
+    <div class="telco-card">
+      <img src="https://i.postimg.cc/WzsgT9P1/55F8DE97-2A18-49B6-9879-6C0E0D64D52A.png" alt="MTN Data">
+    </div>
+          <form id="contactForm">
+        <section class="bundle-form">
+  <h2>Select Your Prefered Data Bundle</h2>
+   <h3>GHS 4.99 – GHS 400.00</h3>
+
+
+    <div class="bundle-buttons">
+      <button type="button" data-gb="1" data-price="4.99">1 GB</button>
+      <button type="button" data-gb="2" data-price="9.99">2 GB</button>
+      <button type="button" data-gb="3" data-price="15.99">3 GB</button>
+      <button type="button" data-gb="4" data-price="20.99">4 GB</button>
+      <button type="button" data-gb="5" data-price="24.99">5 GB</button>
+      <button type="button" data-gb="6" data-price="3o.00">6 GB</button>
+      <button type="button" data-gb="7" data-price="34.99">7 GB</button>
+      <button type="button" data-gb="8" data-price="37.50">8 GB</button>
+      <button type="button" data-gb="9" data-price="40.99">9 GB</button>
+      <button type="button" data-gb="10" data-price="45.99">10 GB</button>
+      <button type="button" data-gb="12" data-price="55.00">12 GB</button>
+      <button type="button" data-gb="15" data-price="65.00">15 GB</button>      
+      <button type="button" data-gb="20" data-price="85.00">20 GB</button>
+      <button type="button" data-gb="25" data-price="108.00">25 GB</button>
+      <button type="button" data-gb="30" data-price="126.00">30 GB</button>
+      <button type="button" data-gb="40" data-price="165.00">40 GB</button>
+      <button type="button" data-gb="50" data-price="205.00">50 GB</button>
+      <button type="button" data-gb="100" data-price="400.00">100 GB</button>            
+    </div>
+
+    <div class="info">
+<p id="selectedData">Selected Bundle: None</p>
+    <p id="selectedPrice">Price: ...</p>
+
+
+
+   
+
+
+
+        </div>
+    <div class="recipient-form">
+  <h3>Enter Recipient Contact</h3>
+
+    <input type="tel" id="recipient" name="recipient" placeholder="e.g. 0241234567" required />
+<button class="bb" type="submit">Purchase</button>
+<br>
+<small>please provide 10 digits only!!!</small>
+  </form>
+  </div>
+</section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <footer>
+
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4><b>MTDATAHUB</b></h4>
+      <p>Reliable data and airtime services across Ghana.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Bundles</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    &copy;  <span id="year"></span> MTDATAHUB. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+    <script>
+
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('show');
+    }
+    // Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('active');
+});
+document.addEventListener('click', (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+
+  // Loader trigger
+  const serviceLinks = document.querySelectorAll('.telco-container a');
+  const loader = document.getElementById('loader');
+
+  serviceLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent navigation for demo
+      loader.classList.remove('hidden');
+
+      // Simulate loading delay
+      setTimeout(() => {
+        loader.classList.add('hidden');
+         window.location.href = link.href;
+      }, 700);
+    });
+  });
+
+
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const number = document.getElementById("recipient").value;
+    if (number.length < 10) {
+      alert("Please enter a valid contact number.");
+      return;
+    }
+    // Show loader or proceed to next step
+    document.getElementById("loader").classList.remove("hidden");
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("hidden");
+    }, 2000);
+  });
+
+
+  const buttons = document.querySelectorAll('.bundle-buttons button');
+  const selectedPrice = document.getElementById('selectedPrice');
+  let selectedBundle = null;
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      selectedBundle = {
+        gb: button.getAttribute('data-gb'),
+        price: button.getAttribute('data-price')
+      };
+      selectedData.textContent = `Selected Bundle: ${selectedBundle.gb} GB `;
+       selectedPrice.textContent = `Price:GHS ${selectedBundle.price}`;
+    });
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const number = document.getElementById('recipient').value;
+    if (!selectedBundle) {
+      alert("Please select a bundle.");
+      return;
+    }
+    alert(`Sending ${selectedBundle.gb} GB to ${number} for GHS ${selectedBundle.price}`);
+    // You can trigger loader or API call here
+  });
+</script>
+
+</body>
+</html>
